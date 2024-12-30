@@ -1,18 +1,84 @@
-## Getting Started
+# Інструкція з використання програми
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Опис програми TextProcessor
 
-## Folder Structure
+Програма **TextProcessor** призначена для обробки текстових даних шляхом видалення найдовших підрядків між заданими символами в кожному реченні тексту.
 
-The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### Основні можливості програми:
+1. **Парсинг тексту**
+   - Розбиває текст на речення, слова та розділові знаки.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+2. **Обробка тексту**
+   - Визначає найдовші підрядки між заданими символами.
+   - Видаляє знайдені підрядки.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+3. **Виведення результатів**
+   - Виводить текст до та після обробки.
 
-## Dependency Management
+### Опис класів і методів
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+**1. Клас `Letter`:**
+- Представляє окрему літеру.
+- **Методи:**
+  - **Конструктор:** Ініціалізує літеру.
+  - **getValue():** Повертає символ літери.
+
+**2. Клас `Punctuation`:**
+- Представляє розділовий знак.
+- **Методи:**
+  - **Конструктор:** Ініціалізує знак.
+  - **getValue():** Повертає символ знаку.
+
+**3. Клас `Word`:**
+- Представляє слово як масив літер.
+- **Методи:**
+  - **Конструктор:** Ініціалізує слово зі строки.
+  - **startsWith():** Перевіряє, чи починається слово з заданої літери.
+  - **endsWith():** Перевіряє, чи закінчується слово заданою літерою.
+  - **length():** Повертає довжину слова.
+  - **toString():** Повертає рядкове представлення слова.
+
+**4. Клас `Sentence`:**
+- Представляє речення як послідовність слів і розділових знаків.
+- **Методи:**
+  - **addWord():** Додає слово до речення.
+  - **addPunctuation():** Додає розділовий знак до речення.
+  - **removeLongestSubstring():** Видаляє найдовший підрядок між заданими символами.
+  - **toString():** Повертає рядкове представлення речення.
+
+**5. Клас `Text`:**
+- Представляє текст як масив речень.
+- **Методи:**
+  - **addSentence():** Додає речення до тексту.
+  - **processText():** Обробляє всі речення у тексті для видалення підрядків.
+  - **toString():** Повертає рядкове представлення тексту.
+
+**6. Клас `TextProcessor`:**
+- **main(String[] args):**
+  - Зчитує вхідний текст.
+  - Парсить текст у структуру.
+  - Обробляє текст для видалення підрядків.
+  - Виводить результат.
+  
+
+### Обробка помилок
+- Обробляє всі винятки та виводить повідомлення про помилки.
+
+
+  
+**Запуск програми:**
+  
+   - Використайте термінал:
+     ```bash
+     javac TextProcessor.java
+     java TextProcessor
+     ```
+
+## Результат виконання
+Програма виведе:
+- Початковий текст
+- Параметри пошуку підрядків
+- Оброблений текст з видаленими підрядками
+
+**Автор Демич Сергій**
